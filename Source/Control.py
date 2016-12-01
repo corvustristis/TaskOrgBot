@@ -1,19 +1,19 @@
 import config
 import telebot
-import Start
-import Help
-import New
-import All
-import Delete
+from Start import StartCommand
+from Help import HelpCommand
+from New import NewTask
+from All import AllTasks
+from Delete import DeleteTask
 
 bot = telebot.TeleBot(config.token)
 
 comms = ['start', 'help', 'new', 'all', 'delete']
-st = Start.StartCommand()
-hp = Help.HelpCommand()
-nw = New.NewTask()
-al = All.AllTasks()
-dl = Delete.DeleteTask()
+st = StartCommand()
+hp = HelpCommand()
+nw = NewTask()
+al = AllTasks()
+dl = DeleteTask()
 
 @bot.message_handler(content_types=["text"])
 def msg_check(msg):
@@ -35,18 +35,18 @@ def msg_check(msg):
 		return
 	
 	if comm == 'new':
-		nw.action(msg.chat.id, msg.text, bot)
+		nw.action(msg, bot)
+		print(msg.from_user.username + ": " + msg.text)
 		return
 	
 	if comm == 'all':
 		al.action(msg.chat.id, bot)
-		print(msg.from_user.username + ": " + msg.text)
 		return
 	
 	if comm == 'delete':
 		dl.action(msg.chat.id, msg.text, bot)
-		return
 	
 	
 if __name__ == '__main__':
 	bot.polling(none_stop = True)	
+	

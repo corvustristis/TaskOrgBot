@@ -1,6 +1,6 @@
-import Strategy
+from Strategy import BotStrategy
 
-class StartCommand(Strategy.BotStrategy):
+class StartCommand(BotStrategy):
 	def __init__(self):
 		pass
 	
@@ -16,3 +16,4 @@ Type /help for reference.""")
 		name = str(num)+".txt"
 		file = open(name, "w")
 		file.close()
+		

@@ -1,6 +1,6 @@
-import Strategy
+from Strategy import BotStrategy
 
-class HelpCommand(Strategy.BotStrategy):
+class HelpCommand(BotStrategy):
 	def __init__(self):
 		pass
 	
@@ -11,3 +11,4 @@ class HelpCommand(Strategy.BotStrategy):
 			  /new i need to feed cat in 8 hrs 10 mins with high priority.
 And when time comes, you'll get a message from me.
 To view all tasks type /all and /delete, if some task is unnecessary. You can type /delete only after /all.""")
+		
