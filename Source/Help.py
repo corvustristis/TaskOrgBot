@@ -6,7 +6,7 @@ class HelpCommand(BotStrategy):
 	
 	def action(self, chat_id, bot):
 		bot.send_message(chat_id, """Type /new and your task, eg.:
-			  /new watch new episode of Supergirl on Monday with high priority
+			  /new go to dentist on Monday with high priority
 			  /new Sara throws party at 18:00 with low priority
 			  /new i need to feed cat in 8 hrs 10 mins with high priority.
 And when time comes, you'll get a message from me.

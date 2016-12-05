@@ -36,7 +36,6 @@ def msg_check(msg):
 	
 	if comm == 'new':
 		nw.action(msg, bot)
-		print(msg.from_user.username + ": " + msg.text)
 		return
 	
 	if comm == 'all':

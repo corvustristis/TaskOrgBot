@@ -23,6 +23,26 @@ def get_unix_time(text):
 			task_day += 7
 		unix_time = (task_day - curr_day) * 3600 * 24 + int(time())
 		return unix_time
+	
+	if text[0] == 'at':
+		task_time = text[1].split(':')
+		if len(task_time) != 2:
+			return unix_time
+		cur_time = str(datetime.datetime.today()).split()[1].split(':')[:2]
+		for i in range(len(task_time)):
+			try:
+				task_time[i] = int(task_time[i])
+			except ValueError:
+				return unix_time
+			cur_time[i] = int(cur_time[i])
+		if task_time[0] > cur_time[0]:
+				task_time[i] += 12
+		if task_time[1] > cur_time[1]:
+				task_time[i] += 60
+		for i in range(len(task_time)):
+			task_time[i] -= cur_time[i]
+		unix_time = task_time[0] * 3600 + task_time[1] * 60 + int(time())
+		return unix_time	
 
 	if text[0] == 'in':
 		if len(text) == 3:

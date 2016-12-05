@@ -1,9 +1,6 @@
 from Strategy import BotStrategy
 from time import time
 
-def task_sort(tasks):
-	pass
-
 class AllTasks(BotStrategy):
 	def __init__(self):
 		pass
@@ -32,7 +29,7 @@ class AllTasks(BotStrategy):
 		for line in lines:
 			line = ' '.join(line) + '\n'
 		number = 1
-		msg = "All tasks:\n\nImportant/Urgent:\n"
+		msg = "Here is a list of all your tasks:\n\nImportant/Urgent:\n"
 		for line in important:
 			if line in urgent:
 				msg += str(number) + '. ' + line[0:-13] + '\n'
@@ -54,4 +51,6 @@ class AllTasks(BotStrategy):
 				number += 1
 		
 		bot.send_message(chat_id, msg)
-			
+		
+		
+		
